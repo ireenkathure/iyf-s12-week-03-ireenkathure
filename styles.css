@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+.content { padding: 10px; margin: 10px 0; border: 1px solid #ccc; }
+nav ul { list-style: none; display: flex; gap: 15px; }
+.nav-link { text-decoration: none; color: blue; }
