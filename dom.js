@@ -1,26 +1,39 @@
-const check = (label, ok) => console.log(`${ok ? "√" : "X"} ${label}`);
+// 1. Select the main heading and change it
+const mainHeading = document.querySelector("h1");
+mainHeading.textContent = "Welcome to My Website";
 
-const h1 = document.querySelector('h1');
-const contentElements = document.querySelectorAll('.content');
-const contactForm = document.getElementById('contact-form');
-const emailInput = document.querySelector('#contact-form input[type="email"]');
-const navItems = document.querySelectorAll('nav li');
-const firstNavLink = document.querySelector('.nav-link');
-const lastPara = document.querySelector('article p:last-of-type');
-const submitBtn = document.querySelector('button[type="submit"]');
-const allH2 = document.querySelectorAll('h2');
-const footer = document.querySelector('footer');
+// 2. Select all nav links
+const navLinks = document.querySelectorAll(".nav-link");
+console.log("Nav links:", navLinks.length);
 
-check('TODO 1 h1', !!h1);
-check('TODO 2 content', contentElements.length > 0);
-check('TODO 3 contact-form', !!contactForm);
-check('TODO 4 email input', !!emailInput);
-check('TODO 5 nav li', navItems.length > 0);
-check('TODO 6 first .nav-link', !!firstNavLink);
-check('TODO 7 last p', !!lastPara);
+// 3. Select all content sections
+const contentSections = document.querySelectorAll(".content");
+console.log("Content sections:", contentSections.length);
 
-const notFound = document.querySelector('.does-not-exist');
-console.log('does-not-exist returns:', notFound);
+// 4. Select the first paragraph inside the article
+const firstArticlePara = document.querySelector("article p");
+firstArticlePara.style.color = "blue";
 
-const navTexts = [...navItems].map(el => el.textContent);
-console.log('navTexts:', navTexts);
+// 5. Select all paragraphs inside the article
+const articleParas = document.querySelectorAll("article p");
+articleParas.forEach(function(p) {
+  p.style.fontSize = "18px";
+});
+
+// 6. Select the last paragraph in the article and highlight it
+const lastPara = document.querySelector("article p:last-child");
+lastPara.style.backgroundColor = "yellow";
+
+// 7. Select the contact form by ID
+const contactForm = document.getElementById("contact-form");
+
+// 8. Create a new paragraph and add it to the page
+const newPara = document.createElement("p");
+newPara.textContent = "This paragraph was added with JavaScript!";
+document.querySelector("main").appendChild(newPara);
+
+// 9. Listen for form submit
+contactForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Form submitted! Thank you.");
+});
